@@ -1,20 +1,25 @@
 <template>
     <div>
-        <slot :open="open" :close="close" :toggle="toggle" :is-open="isOpen" />
+        <slot></slot>
+        <!-- <slot :openDropdown="openDropdown" :closeDropdown="closeDropdown" :toggleDropconst toggleDropdown="toggleDropconst toggleDropdown" :is-openDropdown="dropdownIsOpen" /> -->
     </div>
 </template>
 
 <script setup>
-    const isOpen = ref(false);
-    const open =  () => {
-        isOpen.value = true;
+    const dropdownIsOpen = ref(false);
+    const openDropdown =  () => {
+        dropdownIsOpen.value = true;
     }
 
-    const close = () => {
-        isOpen.value = false;
+    const closeDropdown = () => {
+        dropdownIsOpen.value = false;
     }
 
-    const toggle = () => {
-        isOpen.value = !isOpen.value;
+    const toggleDropdown = () => {
+        dropdownIsOpen.value = !dropdownIsOpen.value;
     }
+
+    provide('dropdown', {
+        dropdownIsOpen, closeDropdown, toggleDropdown, openDropdown
+    })
 </script>
