@@ -83,18 +83,21 @@
         </MenuItems>
       </Menu>
       <Menu class="relative inline-block text-left">
-        <MenuButton
-          ><button
-            class="inline-flex w-full justify-center rounded-md bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-          >
-            Choose option
-          </button>
-        </MenuButton>
+        <div class="flex rounded-full h-10 bg-blue-700 text-white items-center overflow-hidden">
+          <div class="border-r h-full flex items-center cursor-pointer px-4 text-sm font-medium" @click="alertHello">Create Invoice</div>
+          <MenuButton class="h-10"
+            ><div
+              class="w-full flex items-center justify-center h-10 px-4 text-sm font-medium text-white"
+            >
+              V
+            </div>
+          </MenuButton>
+        </div>
         <MenuItems
-          class="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-30"
+          class="absolute mt-2 right-0 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-30"
         >
           <MenuItem
-          @click="alertHello"
+            @click="alertHello"
             class="group flex w-full items-center rounded-md px-2 py-2 text-sm cursor-pointer"
           >
             Account settings
@@ -126,8 +129,8 @@
 const truthy = ref(false);
 
 const alertHello = () => {
-  alert('This will show for only the first option')
-}
+  alert("This will show for only the first option");
+};
 </script>
 
 // possible improvements // use provide and inject instead of scoped slots for
